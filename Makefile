@@ -6,7 +6,7 @@
 #    By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/26 21:46:59 by thsembel          #+#    #+#              #
-#    Updated: 2021/06/27 20:44:08 by thsembel         ###   ########.fr        #
+#    Updated: 2021/06/27 20:48:11 by thsembel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,9 +79,7 @@ clean:
 			@echo "${GREEN}[ OK ]${RED}	*.o files	deleted${NC}"
 
 fclean:		clean
-			@make -C ${MLX_DIR} fclean
 			@make -C $(LIB_DIR) fclean
-			@echo "${GREEN}[ OK ]${RED}	libmlx.a	deleted${NC}"
 			@echo "${GREEN}[ OK ]${RED}	libft.a		deleted${NC}"
 			@${RM} ${NAME} ${NAME2}
 			@echo "${GREEN}[ OK ]${RED}	so_long 	deleted${NC}"
