@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:48:12 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/27 20:45:38 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/06/28 18:36:10 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "../libft/ft_printf.h"
 #include "../libft/libft.h"
 #include "mlx.h"
-#include "mlx_int.h"
+//#include "mlx_int.h"
 #include "../mlx_lib/mlx_opengl.h"
 #include <fcntl.h>
 
@@ -32,6 +32,14 @@
 # define KEY_S				1
 # define KEY_W				13
 # define KEY_EXIT_HOOK		53
+# define PATH "./text/p.xpm ./text/e.xpm ./text/c.xpm ./text/f.xpm ./text/w.xpm"
+
+typedef struct s_tex
+{
+	void	*img[5];
+	int		x[5];
+	int		y[5];
+}				t_tex;
 
 typedef struct s_game
 {
@@ -45,18 +53,10 @@ typedef struct s_game
 	int		nb_move;
 	int		p_coin;
 	int		nb_coin;
-	int		key_up;
-	int		key_down;
-	int		key_right;
-	int		key_left;
-	int		key_esc;
 	void	*mlx;
 	void	*win;
-	void	*p_img;
-	void	*e_img;
-	void	*c_img;
-	void	*f_img;
-	void	*w_img;
+	t_tex	text;
+
 }				t_game;
 
 typedef struct s_check
@@ -79,7 +79,6 @@ int		check_info(t_game *game, t_check *check, int i, int j);
 /*
 **		key.c
 */
-int		key_released(int keycode, t_game *game);
 int		key_pressed(int keycode, t_game *game);
 /*
 **		move.c

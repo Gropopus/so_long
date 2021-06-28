@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:55:10 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/27 19:06:32 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/06/28 18:39:58 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,35 +20,44 @@ int	ft_error(char *str)
 
 int	play(t_game *game)
 {
-	ft_printf("p_x %d p_y %d\nnb_move = %d	coin = %d\n", game->p_posx, game->p_posy, game->nb_move, game->p_coin);
-	ft_print_tab(game->map);
+	(void)game;
 	return (1);
 }
 
 void	start_game(t_game *game)
 {
 	game->mlx = mlx_init();
-	game->res_y = 600;
-	game->res_x = 800;
+	game->res_y = game->col * game->text.y[4];
+	game->res_x = game->raw * game->text.x[4];
+	ft_printf("y%d  x%d\n", game->res_y, game->res_y);
 	game->win = mlx_new_window(game->mlx, game->res_x, game->res_y, "So_long");
+	//display_map(game);
 	mlx_hook(game->win, 2, 1L << 0, key_pressed, game);
-	mlx_hook(game->win, 3, 1L << 1, key_released, game);
 	mlx_hook(game->win, 33, 0, exit_game, game);
 	mlx_loop_hook(game->mlx, play, game);
 	mlx_loop(game->mlx);
 }
 
-/*int	load_assets(t_game *game)
+int	load_assets(t_game *game)
 {
-	int *height;
-	int *width;
+	int	i;
+	char **path;
 
-	*width = 600 / game->raw;
-	*height = 800 / game->col;
-	if (!(game->p_img = mlx_xpm_file_to_image(game->mlx, "./assets/player.xpm", width, height)))
-		return (ft_error("Cannot load player texture\n"));
+	path = ft_split(PATH, ' ');
+	i = 0;
+	while (i < 4)
+	{
+		if  (!(game->text.img[i] = mlx_xpm_file_to_image(game->mlx, path[i],
+			&game->text.x[i], &game->text.y[i])))
+		{
+			ft_free_tab(path);
+			return (ft_error("Cannot load player texture\n"));
+		}
+		i++;
+	}
+	ft_free_tab(path);
 	return (1);
-}*/
+}
 
 int	main(int ac, char **av)
 {
@@ -63,6 +72,8 @@ int	main(int ac, char **av)
 		ft_free_tab(game.map);
 		return (0);
 	}
+	if (load_assets(&game) == 0)
+		return (0);
 	start_game(&game);
 	return (0);
 }

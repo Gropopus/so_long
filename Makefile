@@ -6,7 +6,7 @@
 #    By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/26 21:46:59 by thsembel          #+#    #+#              #
-#    Updated: 2021/06/27 20:48:11 by thsembel         ###   ########.fr        #
+#    Updated: 2021/06/28 18:36:47 by thsembel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ OBJS		= ${SRCS:.c=.o}
 
 RM			= rm -f
 
-CFLAGS		= -Wall -Wextra -Werror -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror #-fsanitize=address
 
 LFLAGS		= -framework OpenGL -framework AppKit
 
@@ -87,4 +87,3 @@ fclean:		clean
 re :		fclean all
 
 .PHONY:		all	clean	fclean re
-
