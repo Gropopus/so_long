@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:55:10 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/28 18:39:58 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/06/29 15:11:01 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@ int	play(t_game *game)
 void	start_game(t_game *game)
 {
 	game->mlx = mlx_init();
-	game->res_y = game->col * game->text.y[4];
-	game->res_x = game->raw * game->text.x[4];
-	ft_printf("y%d  x%d\n", game->res_y, game->res_y);
+	game->res_y = (int)(game->col * game->text.y[4]);
+	game->res_x = (int)(game->raw * game->text.x[4]);
 	game->win = mlx_new_window(game->mlx, game->res_x, game->res_y, "So_long");
-	//display_map(game);
+	display_map(game);
 	mlx_hook(game->win, 2, 1L << 0, key_pressed, game);
 	mlx_hook(game->win, 33, 0, exit_game, game);
 	mlx_loop_hook(game->mlx, play, game);
@@ -45,8 +44,9 @@ int	load_assets(t_game *game)
 
 	path = ft_split(PATH, ' ');
 	i = 0;
-	while (i < 4)
+	while (i < 5)
 	{
+		game->text.x[i] = 0;
 		if  (!(game->text.img[i] = mlx_xpm_file_to_image(game->mlx, path[i],
 			&game->text.x[i], &game->text.y[i])))
 		{

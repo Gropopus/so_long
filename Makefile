@@ -6,7 +6,7 @@
 #    By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/26 21:46:59 by thsembel          #+#    #+#              #
-#    Updated: 2021/06/28 18:36:47 by thsembel         ###   ########.fr        #
+#    Updated: 2021/06/29 15:11:29 by thsembel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ SRCS		=	./srcs/main.c \
 				./srcs/ft_parsing2.c \
 				./srcs/key.c \
 				./srcs/move.c \
-				./srcs/exit.c
-
+				./srcs/exit.c \
+				./srcs/display.c
 
 INCLUDES	=	./libft/libft.h \
 				./libft/ft_printf.h \
