@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 17:40:16 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/30 16:32:15 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/01 01:40:22 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ void	move_up(t_game *game)
 	{
 		if (game->nb_coin == game->p_coin)
 		{
-			ft_printf("%sYou Won !%s", GREEN, NC);
+			game->nb_move += 1;
+			ft_printf("%stotal moves:%s %d\n", GREEN, NC, game->nb_move);
+			ft_printf("%sYou Won !%s\n", GREEN, NC);
 			exit_game(game);
 		}
 	}
@@ -50,7 +52,9 @@ void	move_down(t_game *game)
 	{
 		if (game->nb_coin == game->p_coin)
 		{
-			ft_printf("%sYou Won !%s", GREEN, NC);
+			game->nb_move += 1;
+			ft_printf("%stotal moves:%s %d\n", GREEN, NC, game->nb_move);
+			ft_printf("%sYou Won !%s\n", GREEN, NC);
 			exit_game(game);
 		}
 	}
@@ -73,7 +77,9 @@ void	move_right(t_game *game)
 	{
 		if (game->nb_coin == game->p_coin)
 		{
-			ft_printf("%sYou Won !%s", GREEN, NC);
+			game->nb_move += 1;
+			ft_printf("%stotal moves:%s %d\n", GREEN, NC, game->nb_move);
+			ft_printf("%sYou Won !%s\n", GREEN, NC);
 			exit_game(game);
 		}
 	}
@@ -96,7 +102,9 @@ void	move_left(t_game *game)
 	{
 		if (game->nb_coin == game->p_coin)
 		{
-			ft_printf("%sYou Won !%s", GREEN, NC);
+			game->nb_move += 1;
+			ft_printf("%stotal moves:%s %d\n", GREEN, NC, game->nb_move);
+			ft_printf("%sYou Won !%s\n", GREEN, NC);
 			exit_game(game);
 		}
 	}
