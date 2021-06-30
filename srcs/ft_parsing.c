@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 22:01:06 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/27 16:37:15 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/06/30 16:35:11 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	is_ber(char *str)
 		i++;
 	i -= 4;
 	if (str[i] == '.' && str[i + 1] == 'b' && str[i + 2] == 'e'
-	&& str[i + 3] == 'r')
+		&& str[i + 3] == 'r')
 		return (1);
 	else
 		return (0);

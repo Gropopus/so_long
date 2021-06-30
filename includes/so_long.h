@@ -6,19 +6,17 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:48:12 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/30 14:48:08 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/06/30 16:40:01 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "../libft/ft_printf.h"
-#include "../libft/libft.h"
-#include "mlx.h"
-//#include "mlx_int.h"
-#include "../mlx_lib/mlx_opengl.h"
-#include <fcntl.h>
+# include "../libft/ft_printf.h"
+# include "../libft/libft.h"
+# include "mlx.h"
+# include <fcntl.h>
 
 # define RED    "\033[0;31m"
 # define GREEN  "\033[0;32m"
@@ -37,7 +35,6 @@
 typedef struct s_tex
 {
 	void		*img[5];
-	void		*map_img;
 	int			x[5];
 	int			y[5];
 }				t_tex;
@@ -98,4 +95,5 @@ int		exit_game(t_game *game);
 */
 void	display_coin_player(t_game *game);
 void	display_map(t_game *game);
-# endif
+
+#endif

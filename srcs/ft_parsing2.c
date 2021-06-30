@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse2.c                                        :+:      :+:    :+:   */
+/*   ft_parsing2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 00:37:44 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/27 16:36:29 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/06/30 16:34:46 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	is_char_ok(char c)
 int	is_info_ok(t_check *check, t_game *game)
 {
 	if (check->player != 1)
-		return(ft_error("Player must have a single start position\n"));
+		return (ft_error("Player must have a single start position\n"));
 	if (check->coin == 0)
 		return (ft_error("Map must contain at least one object\n"));
 	if (check->exit == 0)

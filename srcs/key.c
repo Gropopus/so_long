@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 15:01:08 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/28 11:40:57 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/06/30 16:34:05 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,3 @@ int	key_pressed(int keycode, t_game *game)
 		move_right(game);
 	return (keycode);
 }
-

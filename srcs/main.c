@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:55:10 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/30 15:00:58 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/06/30 16:33:40 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,16 @@ void	start_game(t_game *game)
 
 int	load_assets(t_game *game)
 {
-	int	i;
-	char **path;
+	int		i;
+	char	**path;
 
 	path = ft_split(PATH, ' ');
 	i = 0;
 	while (i < 5)
 	{
-		if  (!(game->text.img[i] = mlx_xpm_file_to_image(game->mlx, path[i],
-			&game->text.x[i], &game->text.y[i])))
+		game->text.img[i] = mlx_xpm_file_to_image(game->mlx, path[i],
+				&game->text.x[i], &game->text.y[i]);
+		if (!game->text.img[i])
 		{
 			ft_free_tab(path);
 			return (ft_error("Cannot load player texture\n"));
@@ -73,7 +74,7 @@ int	main(int ac, char **av)
 	}
 	game.mlx = mlx_init();
 	if (load_assets(&game) == 0)
-		return (0);
+		return (exit_game(&game));
 	start_game(&game);
 	return (0);
 }
