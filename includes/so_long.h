@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:48:12 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/29 15:15:53 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/06/30 14:48:08 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ int		exit_game(t_game *game);
 /*
 **		display.c
 */
+void	display_coin_player(t_game *game);
 void	display_map(t_game *game);
 # endif
