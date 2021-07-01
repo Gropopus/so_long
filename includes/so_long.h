@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:48:12 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/30 16:52:06 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/01 11:37:21 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ typedef struct s_game
 	void	*mlx;
 	void	*win;
 	t_tex	text;
-
 }				t_game;
 
 typedef struct s_check

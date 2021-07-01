@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 15:01:08 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/30 16:34:05 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/01 11:29:38 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	key_pressed(int keycode, t_game *game)
 {
 	if (keycode == KEY_EXIT_HOOK)
-		esc_game(game);
+		exit_game(game);
 	else if (keycode == KEY_W)
 		move_up(game);
 	else if (keycode == KEY_S)
