@@ -6,7 +6,7 @@
 #    By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/26 21:46:59 by thsembel          #+#    #+#              #
-#    Updated: 2021/06/30 16:26:21 by thsembel         ###   ########.fr        #
+#    Updated: 2021/07/01 13:21:28 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ HEAD		= ./includes/
 
 LIBFT		= ./libft/libft.a
 
-MLX			= ./mlx_lib/libmlx.a
+#MLX			= ./mlx_lib/libmlx.a
+MLX			= ./mlx_lib/libmlx_Linux.a
 
 MLX_DIR		= ./mlx_lib/
 
@@ -52,9 +53,9 @@ RM			= rm -f
 
 CFLAGS		= -Wall -Wextra -Werror #-fsanitize=address
 
-LFLAGS		= -framework OpenGL -framework AppKit
+#LFLAGS		= -framework OpenGL -framework AppKit
 
-#LFLAGS		= -lm -lX11 -lXext -lbsd
+LFLAGS		= -lm -lX11 -lXext -lbsd
 
 .c.o:
 		@${CC} ${CFLAGS} -I${HEAD} -c $< -o ${<:.c=.o}
@@ -64,7 +65,7 @@ LFLAGS		= -framework OpenGL -framework AppKit
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-			@make -C ${MLX_DIR}
+			#@make -C ${MLX_DIR}
 			@make -C ${LIB_DIR}
 			@make -C ${LIB_DIR} bonus
 			@echo "${GREEN}\nlibmlx.a		has been created${NC}"
