@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 22:01:06 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/30 16:35:11 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/01 15:07:49 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int	ft_parsing(char *arg, t_game *game)
 	int		fd;
 	t_check	check;
 
+	game->map = NULL;
 	check.player = 0;
 	check.exit = 0;
 	check.coin = 0;

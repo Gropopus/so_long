@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:55:10 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/01 13:38:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/01 15:07:57 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	start_game(t_game *game)
 	game->res_x = (int)(game->raw * game->text.x[4]);
 	game->win = mlx_new_window(game->mlx, game->res_x, game->res_y, "So_long");
 	mlx_hook(game->win, 2, 1L << 0, key_pressed, game);
-//	mlx_hook(game->win, 33, 1L << 5, exit_game, game);
 	mlx_hook(game->win, 33, 0L, exit_game, game);
 	mlx_loop_hook(game->mlx, play, game);
 	mlx_loop(game->mlx);
@@ -70,7 +69,8 @@ int	main(int ac, char **av)
 		return (ft_error("usage: ./so_long <Map.ber>\n"));
 	if (ft_parsing(av[1], &game) == 0)
 	{
-		ft_free_tab(game.map);
+		if (game.map != NULL)
+			ft_free_tab(game.map);
 		return (0);
 	}
 	game.mlx = mlx_init();
