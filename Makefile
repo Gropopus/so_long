@@ -6,7 +6,7 @@
 #    By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/26 21:46:59 by thsembel          #+#    #+#              #
-#    Updated: 2021/07/01 13:21:28 by user42           ###   ########.fr        #
+#    Updated: 2021/07/01 14:25:38 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ OBJS		= ${SRCS:.c=.o}
 
 RM			= rm -f
 
-CFLAGS		= -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror
 
 #LFLAGS		= -framework OpenGL -framework AppKit
 
@@ -65,7 +65,6 @@ LFLAGS		= -lm -lX11 -lXext -lbsd
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-			#@make -C ${MLX_DIR}
 			@make -C ${LIB_DIR}
 			@make -C ${LIB_DIR} bonus
 			@echo "${GREEN}\nlibmlx.a		has been created${NC}"

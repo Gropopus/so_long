@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:48:12 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/01 13:38:49 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/01 14:32:41 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,15 @@
 # define KEY_S				115
 # define KEY_W				119
 # define KEY_EXIT_HOOK		65307
+
+/*** KEYS MAC ***
+# define KEY_A				0
+# define KEY_D				2
+# define KEY_S				1
+# define KEY_W				13
+# define KEY_EXIT_HOOK		53
+*/
+
 # define PATH "./text/p.xpm ./text/e.xpm ./text/c.xpm ./text/f.xpm ./text/w.xpm"
 
 typedef struct s_tex
