@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:48:12 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/30 16:52:06 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/03 19:31:48 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,14 @@
 # define KEY_W				13
 # define KEY_EXIT_HOOK		53
 # define PATH "./text/p.xpm ./text/e.xpm ./text/c.xpm ./text/f.xpm ./text/w.xpm"
-
+# define DIGITS "../text/0.xpm ../text/1.xpm ../text/2.xpm ../text/3.xpm \
+../text/4.xpm" \
 typedef struct s_tex
 {
 	void		*img[5];
+	void		*digits[10];
+	int			d_x[10];
+	int			d_y[10];
 	int			x[5];
 	int			y[5];
 }				t_tex;

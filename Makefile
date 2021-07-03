@@ -6,7 +6,7 @@
 #    By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/26 21:46:59 by thsembel          #+#    #+#              #
-#    Updated: 2021/07/01 14:25:38 by user42           ###   ########.fr        #
+#    Updated: 2021/07/03 20:13:47 by thsembel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,17 +26,32 @@ SRCS		=	./srcs/main.c \
 				./srcs/exit.c \
 				./srcs/display.c
 
+SRCS_BONUS	=	./bonus/srcs/main.c \
+				./bonus/srcs/ft_parsing.c \
+				./bonus/srcs/ft_parsing2.c \
+				./bonus/srcs/key.c \
+				./bonus/srcs/move.c \
+				./bonus/srcs/exit.c \
+				./bonus/srcs/load_bonus.c \
+				./bonus/srcs/display.c
+
 INCLUDES	=	./libft/libft.h \
 				./libft/ft_printf.h \
 				./includes/so_long.h \
 				./includes/mlx.h
 
+INCLUDES_BONUS	=	./libft/libft.h \
+					./libft/ft_printf.h \
+					./bonus/includes/so_long.h \
+					./bonus/includes/mlx.h
+
 HEAD		= ./includes/
+
+HEAD_BONUS	= ./bonus/includes/
 
 LIBFT		= ./libft/libft.a
 
-#MLX			= ./mlx_lib/libmlx.a
-MLX			= ./mlx_lib/libmlx_Linux.a
+MLX			= ./mlx_lib/libmlx.a
 
 MLX_DIR		= ./mlx_lib/
 
@@ -48,23 +63,25 @@ CC			= clang
 
 OBJS		= ${SRCS:.c=.o}
 
+OBJS_B		= ${SRCS_BONUS:.c=.o}
 
 RM			= rm -f
 
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror #-fsanitize=address
 
-#LFLAGS		= -framework OpenGL -framework AppKit
+LFLAGS		= -framework OpenGL -framework AppKit
 
-LFLAGS		= -lm -lX11 -lXext -lbsd
+#LFLAGS		= -lm -lX11 -lXext -lbsd
 
 .c.o:
-		@${CC} ${CFLAGS} -I${HEAD} -c $< -o ${<:.c=.o}
+		@${CC} ${CFLAGS} -I${HEAD_BONUS} -c $< -o ${<:.c=.o}
 		@echo "${GREEN}[ OK ]	${ORANGE}${<:.s=.o}${NC}"
 
 
 all:		${NAME}
 
 ${NAME}:	${OBJS}
+			@make -C ${MLX_DIR}
 			@make -C ${LIB_DIR}
 			@make -C ${LIB_DIR} bonus
 			@echo "${GREEN}\nlibmlx.a		has been created${NC}"
@@ -72,10 +89,18 @@ ${NAME}:	${OBJS}
 			@${CC} ${CFLAGS} ${LFLAGS} -I${HEAD} -o ${NAME} $(OBJS) ${LIBFT} ${MLX}
 			@echo "so_long		has been created\n${NC}"
 
+bonus:		${OBJS_B}
+			@make -C ${MLX_DIR}
+			@make -C ${LIB_DIR}
+			@make -C ${LIB_DIR} bonus
+			@${CC} ${CFLAGS} ${LFLAGS} -I${HEAD_BONUS} -o ${NAME} $(OBJS_B) ${LIBFT} ${MLX}
+			@echo "${GREEN}so_long	with bonus has been created${NC}"
+
 clean:
 			@make -C $(LIB_DIR) clean
 			@make -C ${MLX_DIR} clean
 			@${RM} ${OBJS}
+			@${RM} ${OBJS_B}
 			@echo "${GREEN}[ OK ]${RED}	*.o files	deleted${NC}"
 
 fclean:		clean

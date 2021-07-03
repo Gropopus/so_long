@@ -6,15 +6,15 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:48:12 by thsembel          #+#    #+#             */
-/*   Updated: 2021/06/30 16:52:06 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/03 21:38:52 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/ft_printf.h"
-# include "../libft/libft.h"
+# include "../../libft/ft_printf.h"
+# include "../../libft/libft.h"
 # include "mlx.h"
 # include <fcntl.h>
 
@@ -34,14 +34,18 @@
 
 typedef struct s_tex
 {
-	void		*img[5];
-	int			x[5];
-	int			y[5];
+	void		*img[9];
+	void		*digits[10];
+	int			x[9];
+	int			y[9];
 }				t_tex;
 
 typedef struct s_game
 {
 	char	**map;
+	int		right;
+	int		e_posx;
+	int		e_posy;
 	int		p_posx;
 	int		p_posy;
 	int		raw;
@@ -95,5 +99,10 @@ int		exit_game(t_game *game);
 */
 void	display_coin_player(t_game *game);
 void	display_map(t_game *game);
+/*
+**		load_bonus.c
+*/
+int		ft_load_bonus(t_game *game);
+void	display_digits(t_game *game, int nb);
 
 #endif
