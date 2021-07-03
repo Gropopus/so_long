@@ -6,18 +6,22 @@
 /*   By: thsembel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:12:19 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/03 22:02:24 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/04 01:28:18 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	display_pc(t_game *game, int i, int j)
+void	display_pc(t_game *game, int i, int j, int img)
 {
 	if (game->map[i][j] == 'C')
 	{
-		mlx_put_image_to_window(game->mlx, game->win, game->text.img[2],
-			j * 32, i * 32);
+		if (img == 1)
+			mlx_put_image_to_window(game->mlx, game->win, game->text.img[9],
+				j * 32, i * 32);
+		else
+			mlx_put_image_to_window(game->mlx, game->win, game->text.img[2],
+				j * 32, i * 32);
 	}
 	if (game->map[game->p_posx][game->p_posy] == 'E')
 		mlx_put_image_to_window(game->mlx, game->win, game->text.img[6],
@@ -34,7 +38,7 @@ void	display_pc(t_game *game, int i, int j)
 	display_digits(game, 0);
 }
 
-void	draw_map(t_game *game, int anim)
+void	draw_map(t_game *game, int anim, int img)
 {
 	int		i;
 	int		j;
@@ -50,7 +54,7 @@ void	draw_map(t_game *game, int anim)
 					j * 32, i * 32);
 			else if (game->map[i][j] == 'E')
 			{
-				if (anim % 5 == 0)
+				if (anim % 10 == 0)
 					mlx_put_image_to_window(game->mlx, game->win,
 					game->text.img[1], j * 32, i * 32);
 				else
@@ -60,7 +64,15 @@ void	draw_map(t_game *game, int anim)
 			else if (game->map[i][j] != '1')
 				mlx_put_image_to_window(game->mlx, game->win, game->text.img[3],
 					j * 32, i * 32);
-			display_pc(game, i, j);
+			if (img == 0)
+					anim+=1;
+			if (anim / 10 != 0)
+				img = 1;
+			if (img == 1)
+				anim -= 1;
+			if (anim == 0)
+				img = 0;
+			display_pc(game, i, j, img);
 			j++;
 		}
 		i++;
@@ -69,9 +81,10 @@ void	draw_map(t_game *game, int anim)
 
 void	display_map(t_game *game)
 {
-	static int anim;
+	static	int anim = 0;
+	static	int	img = 0;
 
-	draw_map(game, anim);
+	draw_map(game, anim, img);
 	if (anim == 2147483647)
 		anim = 0;
 	anim++;

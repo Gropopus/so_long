@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 19:23:14 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/03 20:32:40 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/04 00:35:03 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,44 @@ int	get_tens(int nb)
 	return (i);
 }
 
+
+void	display_collect(t_game *game)
+{
+	int	i;
+
+	mlx_put_image_to_window(game->mlx, game->win, game->text.img[10], 0, (game->col - 1) * 32);
+	if (game->p_coin> 999)
+		return ;
+	i = ft_get_tens(game->p_coin);
+	if (i == 1)
+		mlx_put_image_to_window(game->mlx, game->win,
+		game->text.digits[game->p_coin], 1 * 32, (game->col - 1 ) * 32);
+	else if (i == 2)
+	{
+		mlx_put_image_to_window(game->mlx, game->win,
+		game->text.digits[game->p_coin / 10], 1 * 32, (game->col - 1) * 32);
+		mlx_put_image_to_window(game->mlx, game->win,
+		game->text.digits[game->p_coin % 10], 2 * 32, (game->col - 1) * 32);
+	}
+}
+
 void	display_digits(t_game *game, int nb)
 {
 	int	i;
 
+	display_collect(game);
 	if (game->nb_move > 999)
 		return ;
 	i = ft_get_tens(game->nb_move);
 	if (i == 1)
 		mlx_put_image_to_window(game->mlx, game->win,
-		game->text.digits[game->nb_move], 2 * 32, 0);
+		game->text.digits[game->nb_move], 0 * 32, 0);
 	else if (i == 2)
 	{
 		mlx_put_image_to_window(game->mlx, game->win,
-		game->text.digits[game->nb_move / 10], 1 * 32, 0);
+		game->text.digits[game->nb_move / 10], 0 * 32, 0);
 		mlx_put_image_to_window(game->mlx, game->win,
-		game->text.digits[game->nb_move % 10], 2 * 32, 0);
+		game->text.digits[game->nb_move % 10], 1 * 32, 0);
 	}
 	else if (i == 3)
 	{

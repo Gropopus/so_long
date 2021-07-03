@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:48:12 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/03 21:38:52 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/03 23:54:59 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 
 typedef struct s_tex
 {
-	void		*img[9];
+	void		*img[11];
 	void		*digits[10];
 	int			x[9];
 	int			y[9];

@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:55:10 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/03 22:19:24 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/04 00:25:48 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ int	load_assets(t_game *game)
 	int		i;
 	char	**path;
 
-	path = ft_split("./text/p.xpm ./text/e.xpm ./text/c.xpm ./text/f.xpm ./text/w.xpm ./text/e2.xpm ./text/ep.xpm ./text/tr.xpm ./text/tl.xpm", ' ');
+	path = ft_split("./text/p.xpm ./text/e.xpm ./text/c.xpm ./text/f.xpm ./text/w.xpm ./text/e2.xpm ./text/ep.xpm ./text/tr.xpm ./text/tl.xpm ./text/c2.xpm ./text/s.xpm", ' ');
 	i = 0;
 	ft_print_tab(path);
-	while (i < 9)
+	while (i < 11)
 	{
 		game->text.img[i] = mlx_xpm_file_to_image(game->mlx, path[i],
 				&game->text.x[i], &game->text.y[i]);
@@ -79,6 +79,7 @@ int	main(int ac, char **av)
 		ft_free_tab(game.map);
 		return (0);
 	}
+	ft_printf("raw %d  col  %d\n", game.raw, game.col);
 	game.mlx = mlx_init();
 	if (load_assets(&game) == 0)
 		return (exit_game(&game));
