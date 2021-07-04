@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:55:10 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/04 00:25:48 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/04 18:21:46 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,32 @@ void	start_game(t_game *game)
 	mlx_loop(game->mlx);
 }
 
-int	load_assets(t_game *game)
+int	load_assets(t_game *game, int i, char *path, char **s_path)
 {
-	int		i;
-	char	**path;
-
-	path = ft_split("./text/p.xpm ./text/e.xpm ./text/c.xpm ./text/f.xpm ./text/w.xpm ./text/e2.xpm ./text/ep.xpm ./text/tr.xpm ./text/tl.xpm ./text/c2.xpm ./text/s.xpm", ' ');
+	path = ft_strdup("./text/p.xpm ");
+	path = ft_strjoin(path, "./text/e.xpm ./text/c.xpm ./text/f.xpm ");
+	path = ft_strjoin(path, "./text/w.xpm ./text/e2.xpm ./text/ep.xpm ");
+	path = ft_strjoin(path, "./text/tr.xpm ./text/tl.xpm ./text/c2.xpm ");
+	path = ft_strjoin(path, "./text/s.xpm");
+	if (path == NULL)
+		return (ft_error("Failed to allocate memory for textures\n"));
+	s_path = ft_split(path, ' ');
+	free(path);
+	if (s_path == NULL)
+		return (ft_error("Failed to allocate memory for textures\n"));
 	i = 0;
-	ft_print_tab(path);
 	while (i < 11)
 	{
-		game->text.img[i] = mlx_xpm_file_to_image(game->mlx, path[i],
+		game->text.img[i] = mlx_xpm_file_to_image(game->mlx, s_path[i],
 				&game->text.x[i], &game->text.y[i]);
 		if (!game->text.img[i])
 		{
-			ft_free_tab(path);
-			ft_printf("-->%d", i);
+			ft_free_tab(s_path);
 			return (ft_error("Cannot load map textures\n"));
 		}
 		i++;
 	}
-	ft_free_tab(path);
+	ft_free_tab(s_path);
 	return (1);
 }
 
@@ -69,8 +74,6 @@ int	main(int ac, char **av)
 
 	game.nb_move = 0;
 	game.p_coin = 0;
-	game.e_posx = 1;
-	game.e_posy = 12;
 	game.right = 1;
 	if (ac != 2)
 		return (ft_error("usage: ./so_long <Map.ber>\n"));
@@ -79,9 +82,8 @@ int	main(int ac, char **av)
 		ft_free_tab(game.map);
 		return (0);
 	}
-	ft_printf("raw %d  col  %d\n", game.raw, game.col);
 	game.mlx = mlx_init();
-	if (load_assets(&game) == 0)
+	if (load_assets(&game, 0, NULL, NULL) == 0)
 		return (exit_game(&game));
 	if (ft_load_bonus(&game) == 0)
 		return (0);

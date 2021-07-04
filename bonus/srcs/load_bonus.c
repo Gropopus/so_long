@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 19:23:14 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/04 00:35:03 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/04 17:41:08 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,30 @@ int	get_tens(int nb)
 	return (i);
 }
 
+char	**set_digits_path(void)
+{
+	char	*path;
+	char	**s_path;
+
+	path = ft_strdup("./text/0.xpm ");
+	path = ft_strjoin(path, "./text/1.xpm ./text/2.xpm ./text/3.xpm ");
+	path = ft_strjoin(path, "./text/4.xpm ./text/5.xpm ./text/6.xpm ");
+	path = ft_strjoin(path, "./text/7.xpm ./text/8.xpm ./text/9.xpm");
+	if (path == NULL)
+		return (NULL);
+	s_path = ft_split(path, ' ');
+	if (s_path == NULL)
+		return (NULL);
+	free(path);
+	return (s_path);
+}
 
 void	display_collect(t_game *game)
 {
 	int	i;
 
-	mlx_put_image_to_window(game->mlx, game->win, game->text.img[10], 0, (game->col - 1) * 32);
+	mlx_put_image_to_window(game->mlx, game->win, game->text.img[10], 0,
+		(game->col - 1) * 32);
 	if (game->p_coin> 999)
 		return ;
 	i = ft_get_tens(game->p_coin);
@@ -48,10 +66,8 @@ void	display_collect(t_game *game)
 	}
 }
 
-void	display_digits(t_game *game, int nb)
+void	display_digits(t_game *game, int nb, int i)
 {
-	int	i;
-
 	display_collect(game);
 	if (game->nb_move > 999)
 		return ;
@@ -84,8 +100,9 @@ int	ft_load_bonus(t_game *game)
 	int i;
 
 	i = 0;
-	path = ft_split("./text/0.xpm ./text/1.xpm ./text/2.xpm ./text/3.xpm ./text/4.xpm ./text/5.xpm ./text/6.xpm ./text/7.xpm ./text/8.xpm ./text/9.xpm", ' ');
-	ft_print_tab(path);
+	path = set_digits_path();
+	if (path == NULL)
+		return (ft_error("Allocation memory for texture failed\n"));
 	while (i < 10)
 	{
 		game->text.digits[i] = mlx_xpm_file_to_image(game->mlx, path[i],
