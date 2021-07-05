@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:55:10 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/05 14:33:43 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/05 15:33:01 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	start_game(t_game *game)
 int	load_assets(t_game *game, int i, char *path, char **s_path)
 {
 	path = ft_strdup("./text/p.xpm ");
-	path = ft_strjoinfree(path, "./text/e.xpm ./text/c.xpm ./text/f.xpm ", 0);
-	path = ft_strjoinfree(path, "./text/w.xpm ./text/e2.xpm ./text/ep.xpm ", 0);
-	path = ft_strjoinfree(path, "./text/tr.xpm ./text/tl.xpm ./text/c2.xpm ",0);
+	path = ft_strjoinfree(path, "./text/e.xpm ./text/c.xpm ./text/f.xpm .", 0);
+	path = ft_strjoinfree(path, "/text/w.xpm ./text/e2.xpm ./text/ep.xpm .", 0);
+	path = ft_strjoinfree(path, "/text/tr.xpm ./text/tl.xpm ./text/c2.xpm ", 0);
 	path = ft_strjoinfree(path, "./text/s.xpm", 0);
 	if (path == NULL)
 		return (ft_error("Failed to allocate memory for textures\n"));

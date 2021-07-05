@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 14:30:30 by user42            #+#    #+#             */
-/*   Updated: 2021/07/05 14:32:57 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/05 15:30:56 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ char	*ft_strjoinfree(char const *s1, char *s2, int nb)
 	to_free2 = (char *)s2;
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
-	if (!(str = (char*)malloc(len_s1 + len_s2 + 1)))
+	str = (char *)malloc(len_s1 + len_s2 + 1);
+	if (!str)
 		return (0);
 	ft_memcpy(str, s1, len_s1);
 	ft_memcpy(str + ft_strlen(s1), s2, len_s2 + 1);
