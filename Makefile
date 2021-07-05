@@ -6,7 +6,7 @@
 #    By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/26 21:46:59 by thsembel          #+#    #+#              #
-#    Updated: 2021/07/05 13:39:22 by user42           ###   ########.fr        #
+#    Updated: 2021/07/05 15:37:07 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,6 @@ LFLAGS		= -lm -lX11 -lXext -lbsd
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-			#@make -C ${MLX_DIR}
 			@make -C ${LIB_DIR}
 			@make -C ${LIB_DIR} bonus
 			@echo "${GREEN}\nlibmlx.a		has been created${NC}"
@@ -92,7 +91,6 @@ ${NAME}:	${OBJS}
 			@echo "so_long		has been created\n${NC}"
 
 bonus:		${OBJS_B}
-			#@make -C ${MLX_DIR}
 			@make -C ${LIB_DIR}
 			@make -C ${LIB_DIR} bonus
 			@${CC} ${CFLAGS} ${LFLAGS} -I${HEAD_BONUS} -o ${NAME} $(OBJS_B) ${LIBFT} ${MLX}
