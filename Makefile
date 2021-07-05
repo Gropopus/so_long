@@ -6,7 +6,7 @@
 #    By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/26 21:46:59 by thsembel          #+#    #+#              #
-#    Updated: 2021/07/03 20:13:47 by thsembel         ###   ########.fr        #
+#    Updated: 2021/07/05 13:39:22 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,9 @@ HEAD_BONUS	= ./bonus/includes/
 
 LIBFT		= ./libft/libft.a
 
-MLX			= ./mlx_lib/libmlx.a
+MLX		= ./mlx_lib/libmlx_Linux.a
+
+#MLX			= ./mlx_lib/libmlx.a
 
 MLX_DIR		= ./mlx_lib/
 
@@ -67,11 +69,11 @@ OBJS_B		= ${SRCS_BONUS:.c=.o}
 
 RM			= rm -f
 
-CFLAGS		= -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -g
 
-LFLAGS		= -framework OpenGL -framework AppKit
+#LFLAGS		= -framework OpenGL -framework AppKit
 
-#LFLAGS		= -lm -lX11 -lXext -lbsd
+LFLAGS		= -lm -lX11 -lXext -lbsd
 
 .c.o:
 		@${CC} ${CFLAGS} -I${HEAD_BONUS} -c $< -o ${<:.c=.o}
@@ -81,7 +83,7 @@ LFLAGS		= -framework OpenGL -framework AppKit
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-			@make -C ${MLX_DIR}
+			#@make -C ${MLX_DIR}
 			@make -C ${LIB_DIR}
 			@make -C ${LIB_DIR} bonus
 			@echo "${GREEN}\nlibmlx.a		has been created${NC}"
@@ -90,7 +92,7 @@ ${NAME}:	${OBJS}
 			@echo "so_long		has been created\n${NC}"
 
 bonus:		${OBJS_B}
-			@make -C ${MLX_DIR}
+			#@make -C ${MLX_DIR}
 			@make -C ${LIB_DIR}
 			@make -C ${LIB_DIR} bonus
 			@${CC} ${CFLAGS} ${LFLAGS} -I${HEAD_BONUS} -o ${NAME} $(OBJS_B) ${LIBFT} ${MLX}

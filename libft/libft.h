@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 13:28:50 by thsembel          #+#    #+#             */
-/*   Updated: 2021/05/24 15:33:21 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/05 14:31:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char			*ft_strcat(char *dest, char *src);
 char			*ft_strcpy(char *dest, char *src);
 char			*ft_itoa(int n);
 char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strjoinfree(char const *s1, char *s2, int nb);
 char			*ft_strchr(const char *str, int c);
 char			*ft_strrchr(const char *str, int c);
 char			*ft_strtrim(char const *s1, char const *set);

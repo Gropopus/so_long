@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 19:23:14 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/05 13:18:32 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/05 14:35:01 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ char	**set_digits_path(void)
 	char	*path;
 	char	**s_path;
 
+	path = NULL;
+	s_path = NULL;
 	path = ft_strdup("./text/0.xpm ");
-	path = ft_strjoin(path, "./text/1.xpm ./text/2.xpm ./text/3.xpm ");
-	path = ft_strjoin(path, "./text/4.xpm ./text/5.xpm ./text/6.xpm ");
-	path = ft_strjoin(path, "./text/7.xpm ./text/8.xpm ./text/9.xpm");
+	path = ft_strjoinfree(path, "./text/1.xpm ./text/2.xpm ./text/3.xpm ", 0);
+	path = ft_strjoinfree(path, "./text/4.xpm ./text/5.xpm ./text/6.xpm ", 0);
+	path = ft_strjoinfree(path, "./text/7.xpm ./text/8.xpm ./text/9.xpm", 0);
 	if (path == NULL)
 		return (NULL);
 	s_path = ft_split(path, ' ');

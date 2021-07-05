@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/07 20:31:45 by thsembel          #+#    #+#             */
-/*   Updated: 2021/05/24 13:50:59 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/05 14:28:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (res == NULL)
 		return (NULL);
 	res[len_s1 + len_s2] = '\0';
-	i = -1;
-	while (s1[++i])
-		res[i] = s1[i];
 	i = 0;
-	while (s2[i])
+	while (s1[i])
 	{
-		res[len_s1 + i] = s2[i];
+		res[i] = s1[i];
 		i++;
 	}
+	free(&s1);
+	res = ft_strcat(res, (char *)s2);
+	free(&s2);
 	return (res);
 }

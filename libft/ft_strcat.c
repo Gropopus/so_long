@@ -6,7 +6,7 @@
 /*   By: thsembel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:06:31 by thsembel          #+#    #+#             */
-/*   Updated: 2021/05/24 13:48:35 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/05 14:17:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ char	*ft_strcat(char *dest, char *src)
 	int	i;
 	int	j;
 
-	i = 0;
-	while (dest[i])
-		i++;
+	i = ft_strlen(dest);
 	j = 0;
 	while (src[j])
 	{

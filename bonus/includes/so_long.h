@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:48:12 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/04 17:21:35 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/05 13:46:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,20 @@
 # define PURPLE "\033[0;35m"
 # define CYAN   "\033[0;36m"
 # define NC     "\033[0m"
+/*		MAC
 # define KEY_A				0
 # define KEY_D				2
 # define KEY_S				1
 # define KEY_W				13
-# define KEY_EXIT_HOOK		53
+# define KEY_EXIT_HOOK		53*/
+# define KEY_A				97
+# define KEY_D				100
+# define KEY_S				115
+# define KEY_W				119
+# define KEY_A				97
+# define KEY_D				100
+# define KEY_EXIT_HOOK			65307
+
 # define PATH "./text/p.xpm ./text/e.xpm ./text/c.xpm ./text/f.xpm ./text/w.xpm"
 
 typedef struct s_tex
