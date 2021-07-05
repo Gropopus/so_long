@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 17:40:16 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/03 22:05:11 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/05 13:20:27 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void	move_left(t_game *game)
 		}
 	}
 	enemy_move(game);
-	if (game->p_posx == game->e_posx && game->p_posy - 1== game->e_posy)
+	if (game->p_posx == game->e_posx && game->p_posy - 1 == game->e_posy)
 	{
 		ft_printf("%s...Game Over...%s\n", RED, NC);
 		exit_game(game);

@@ -6,13 +6,13 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 00:37:44 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/04 18:20:09 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/05 13:16:04 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	set_enemy_position(t_game *game, int i, int j)
+int	set_enemy_position(t_game *game, int i, int j)
 {
 	while (game->map[i])
 	{
@@ -24,12 +24,13 @@ void	set_enemy_position(t_game *game, int i, int j)
 			{
 				game->e_posx = i;
 				game->e_posy = j;
-				return ;
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }
 
 int	is_char_ok(char c)
@@ -77,6 +78,5 @@ int	check_info(t_game *game, t_check *check, int i, int j)
 	}
 	if (is_info_ok(check, game) == 0)
 		return (0);
-	set_enemy_position(game, 1, 1);
-	return (1);
+	return (set_enemy_position(game, 1, 1));
 }

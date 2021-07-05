@@ -6,7 +6,7 @@
 /*   By: thsembel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:12:19 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/04 17:21:48 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/05 13:14:20 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	anim_human(t_game *game, int i, int j)
 {
-	static int img = 0;
+	static int	img = 0;
 
 	if (game->map[i][j] == 'C')
 	{
@@ -40,7 +40,7 @@ void	display_player(t_game *game, int i, int j)
 	anim_human(game, i, j);
 	if (game->map[game->p_posx][game->p_posy] == 'E')
 		mlx_put_image_to_window(game->mlx, game->win, game->text.img[6],
-		game->p_posy * 32, game->p_posx * 32);
+			game->p_posy * 32, game->p_posx * 32);
 	else
 		mlx_put_image_to_window(game->mlx, game->win, game->text.img[0],
 			game->p_posy * 32, game->p_posx * 32);
@@ -56,7 +56,7 @@ void	display_player(t_game *game, int i, int j)
 void	anim_exit(t_game *game, int i, int j)
 {
 	static int	anim = 0;
-	
+
 	if (anim < 10)
 	{
 		mlx_put_image_to_window(game->mlx, game->win,
