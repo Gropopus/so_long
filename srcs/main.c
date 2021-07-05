@@ -6,7 +6,7 @@
 /*   By: thsembel <thsembel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 21:55:10 by thsembel          #+#    #+#             */
-/*   Updated: 2021/07/03 22:24:55 by thsembel         ###   ########.fr       */
+/*   Updated: 2021/07/05 13:28:05 by thsembel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ void	start_game(t_game *game)
 	game->res_x = (int)(game->raw * game->text.x[4]);
 	game->win = mlx_new_window(game->mlx, game->res_x, game->res_y, "So_long");
 	mlx_hook(game->win, 2, 1L << 0, key_pressed, game);
-
 	mlx_hook(game->win, 33, 1L << 5, esc_game, game);
-//	mlx_hook(game->win, 33, 0, exit_game, game);
 	mlx_loop_hook(game->mlx, play, game);
 	mlx_loop(game->mlx);
 }
